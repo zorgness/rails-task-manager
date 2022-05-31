@@ -1,0 +1,25 @@
+<h1>Show</h1>
+
+<%= link_to "Edit task",
+          edit_path(@task),
+          data: { confirm: "Are you sure?" }%>
+
+<ul>
+  <li><%= @task.title %></li>
+  <li><%= @task.details %></li>
+  <li><%= link_to "delete",
+          task_path(@task),
+          method: :delete,
+          data: { confirm: "Are you sure?" }%></li>
+</ul>
+
+
+<% if @task.completed %>
+  <p><%= check_box_tag "" ,"",@task.completed %> this task is completed</p>
+<% else %>
+  <p><%= check_box_tag "" ,"",@task.completed %> this task is not completed yet</p>
+<% end %>
+
+
+
+<%= link_to 'Back to list', tasks_path %>
